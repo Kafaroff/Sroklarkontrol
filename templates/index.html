@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srok Kontrol - Kamal Gafarov</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background: white;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-bottom: 1px solid #007bff;
+            text-align: center;
+            padding: 20px;
+        }
+        .list-group-item {
+            font-size: 18px;
+            color: #007bff;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+        .btn-danger {
+            margin-top: 20px;
+            border-radius: 8px;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        .text-decoration-none {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Srok Kontrol</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a href="{{ url_for('list_products') }}" class="text-decoration-none">
+                        <i class="fas fa-list"></i> All Products
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ url_for('add_product') }}" class="text-decoration-none">
+                        <i class="fas fa-plus"></i> Add Product
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ url_for('expired_products') }}" class="text-decoration-none">
+                        <i class="fas fa-exclamation-triangle"></i> Expired Products
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ url_for('delete_by_date') }}" class="text-decoration-none">
+                        <i class="fas fa-trash"></i> Delete by Date
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <form method="POST" action="/delete_all">
+            <button type="submit" onclick="return confirm('Are you sure you want to delete all products?');" class="btn btn-danger btn-block mt-3">
+                <i class="fas fa-trash-alt"></i> Delete All Products
+            </button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
