@@ -120,4 +120,5 @@ def delete_by_date():
 
 if __name__ == '__main__':
     create_tables()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Uygulamanın Render'da çalışması için gerekli ayarları yapıyoruz.
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)), debug=False)
