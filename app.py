@@ -19,25 +19,21 @@ class Product(db.Model):
     expiration_date = db.Column(db.Date, nullable=False)
     photo_link = db.Column(db.String(200))
 
-
 # Kalan günleri hesaplama fonksiyonu
 def calculate_days_left(expiration_date):
     today = datetime.now().date()
     days_left = (expiration_date - today).days
     return days_left
 
-
 # Veritabanı tablolarını oluşturma
 def create_tables():
     with app.app_context():
         db.create_all()
 
-
 # Ana sayfa
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 # Fotoğraf dosyasını kaydetme
 def save_photo(photo):
@@ -48,7 +44,6 @@ def save_photo(photo):
     photo_path = os.path.join(upload_folder, filename)
     photo.save(photo_path)
     return filename
-
 
 # Ürün ekleme
 @app.route('/add', methods=['GET', 'POST'])
@@ -71,12 +66,10 @@ def add_product():
         return redirect(url_for('add_product'))
     return render_template('add.html')
 
-
 # Fotoğraf görüntüleme
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOADED_PHOTOS_DEST'], filename)
-
 
 # Tüm ürünleri listeleme
 @app.route('/products')
@@ -90,7 +83,6 @@ def list_products():
         product.days_left = calculate_days_left(product.expiration_date)
     return render_template('list.html', products=products, datetime=datetime)
 
-
 # Belirli tarihler arasında son kullanma tarihi olan ürünleri listeleme
 @app.route('/expired', methods=['GET', 'POST'])
 def expired_products():
@@ -103,7 +95,6 @@ def expired_products():
         return render_template('expired.html', products=products)
     return render_template('expired.html', products=[])
 
-
 # Ürünü silme
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete_product(id):
@@ -112,7 +103,6 @@ def delete_product(id):
     db.session.commit()
     flash('Product deleted successfully!')
     return redirect(url_for('list_products'))
-
 
 # Belirli tarihler arasında olan ürünleri silme
 @app.route('/delete_by_date', methods=['GET', 'POST'])
@@ -128,7 +118,6 @@ def delete_by_date():
         return redirect(url_for('delete_by_date'))
     return render_template('delete_by_date.html')
 
-
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
