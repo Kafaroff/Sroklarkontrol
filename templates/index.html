@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,29 +63,29 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <a href="{{ url_for('list_products') }}" class="text-decoration-none">
-                        <i class="fas fa-list"></i> All Products
+                        <i class="fas fa-list"></i> Bütün Məhsullar
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="{{ url_for('add_product') }}" class="text-decoration-none">
-                        <i class="fas fa-plus"></i> Add Product
+                        <i class="fas fa-plus"></i> Məhsul Əlavə Et
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="{{ url_for('expired_products') }}" class="text-decoration-none">
-                        <i class="fas fa-exclamation-triangle"></i> Expired Products
+                        <i class="fas fa-exclamation-triangle"></i> Bitmiş Məhsullar
                     </a>
                 </li>
                 <li class="list-group-item">
                     <a href="{{ url_for('delete_by_date') }}" class="text-decoration-none">
-                        <i class="fas fa-trash"></i> Delete by Date
+                        <i class="fas fa-trash"></i> Tarixə Görə Sil
                     </a>
                 </li>
             </ul>
         </div>
         <form method="POST" action="/delete_all">
-            <button type="submit" onclick="return confirm('Are you sure you want to delete all products?');" class="btn btn-danger btn-block mt-3">
-                <i class="fas fa-trash-alt"></i> Delete All Products
+            <button type="submit" onclick="return confirm('Bütün məhsulları silmək istədiyinizdən əminsiniz?');" class="btn btn-danger btn-block mt-3">
+                <i class="fas fa-trash-alt"></i> Bütün Məhsulları Sil
             </button>
         </form>
     </div>
