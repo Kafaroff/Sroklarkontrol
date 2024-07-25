@@ -254,7 +254,7 @@ def logout():
     session.clear()
     return redirect(url_for('select_section'))
 
-if __name__ == '__main__':
-    create_tables()
-    # 8080 portunda çalışacak şekilde yapılandırıyoruz.
-    app.run(debug=True, port=8080)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
