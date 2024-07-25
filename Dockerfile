@@ -1,22 +1,28 @@
 # Base image
 FROM python:3.11-slim
 
-# Install wkhtmltopdf
-RUN apt-get update && \
-    apt-get install -y wget && \
-    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb && \
-    apt-get install -y ./wkhtmltox_0.12.6-1.bionic_amd64.deb && \
-    rm wkhtmltox_0.12.6-1.bionic_amd64.deb
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    wkhtmltopdf \
+    && apt-get clean
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+# Copy the requirements file
+COPY requirements.txt .
 
-# Copy the application code
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code
 COPY . .
 
+# Set environment variables
+ENV FLASK_APP=app.py
+
+# Expose the port Flask will run on
+EXPOSE 5000
+
 # Run the application
-CMD ["python", "app.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]

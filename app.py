@@ -26,7 +26,8 @@ db = SQLAlchemy(app)
 mail = Mail(app)
 
 # PDF için wkhtmltopdf yolunu belirtin
-pdfkit_config = pdfkit.configuration(wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
+pdfkit_config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+
 
 # Model tanımı
 class Product(db.Model):
