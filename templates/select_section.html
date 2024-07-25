@@ -4,23 +4,141 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bölüm Seç</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .background-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.1;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .background-icons i {
+            font-size: 10rem;
+            color: rgba(0, 123, 255, 0.1);
+            margin: 2rem;
+            opacity: 0.4;
+            transform: rotate(-30deg);
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 600px;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            background: white;
+            padding: 30px;
+            margin: auto;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #007bff;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .form-control {
+            border-radius: 8px;
+            box-shadow: none;
+            padding: 15px;
+            border: 1px solid #dcdcdc;
+            margin-bottom: 20px;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bölüm Seç</h1>
-    <form method="post">
-        <label for="section">Bölüm:</label>
-        <select id="section" name="section" required>
-            <option value="SU SOBESİ">SU SOBESİ</option>
-            <option value="SİRNİYYAT SOBESİ">SİRNİYYAT SOBESİ</option>
-            <option value="QURU QİDA SOBESİ">QURU QİDA SOBESİ</option>
-            <option value="QASTRANOM SOBESİ">QASTRANOM SOBESİ</option>
-            <option value="BÜTÜN SOBELER">BÜTÜN SOBELER</option>
-        </select>
-        <br>
-        <label for="password">Şifrə:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Göndər</button>
-    </form>
+    <div class="background-icons">
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-lock"></i>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Bölüm Seç</h1>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-4">
+                        <label for="section" class="form-label">Bölüm:</label>
+                        <select id="section" name="section" class="form-control" required>
+                            <option value="SU SOBESİ">SU SOBESİ</option>
+                            <option value="SİRNİYYAT SOBESİ">SİRNİYYAT SOBESİ</option>
+                            <option value="QURU QİDA SOBESİ">QURU QİDA SOBESİ</option>
+                            <option value="QASTRANOM SOBESİ">QASTRANOM SOBESİ</option>
+                            <option value="BÜTÜN SOBELER">BÜTÜN SOBELER</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Şifrə:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Göndər
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>

@@ -4,53 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srok Kontrol - Kamal Gafarov</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f4f8;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         .container {
-            margin-top: 50px;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
         }
         .card {
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             background: white;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-            border-bottom: 1px solid #007bff;
             text-align: center;
             padding: 20px;
         }
+        .card-header {
+            background-color: #4a90e2;
+            color: white;
+            border-bottom: 1px solid #357abd;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+        }
+        .card-title {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .subtitle {
+            color: #777;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
         .list-group-item {
             font-size: 18px;
-            color: #007bff;
+            color: #4a90e2;
             border: none;
-            padding: 15px 20px;
+            padding: 15px;
             cursor: pointer;
+            border-bottom: 1px solid #e3e4e8;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .list-group-item:hover {
-            background-color: #e9ecef;
-            color: #0056b3;
+            background-color: #e3e4e8;
+            color: #357abd;
         }
-        .btn-danger {
+        .btn-primary {
             margin-top: 20px;
             border-radius: 8px;
-            background-color: #dc3545;
-            border-color: #dc3545;
+            background-color: #f39c12;
+            border-color: #e67e22;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            text-decoration: none;
         }
-        .btn-danger:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
+        .btn-primary:hover {
+            background-color: #e67e22;
+            border-color: #d35400;
         }
         .text-decoration-none {
             text-decoration: none;
             color: inherit;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #333;
         }
     </style>
 </head>
@@ -58,7 +87,8 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h1>Srok Kontrol</h1>
+                <div class="card-title">Srok Kontrol</div>
+                <div class="subtitle">Kamal Gafarov</div>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -82,14 +112,10 @@
                     </a>
                 </li>
             </ul>
+            <a href="{{ url_for('report') }}" class="btn-primary btn-block mt-3">
+                <i class="fas fa-file-alt"></i> Rapor Gönder
+            </a>
         </div>
-        <form method="POST" action="/delete_all">
-            <button type="submit" onclick="return confirm('Bütün məhsulları silmək istədiyinizdən əminsiniz?');" class="btn btn-danger btn-block mt-3">
-                <i class="fas fa-trash-alt"></i> Bütün Məhsulları Sil
-            </button>
-        </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>

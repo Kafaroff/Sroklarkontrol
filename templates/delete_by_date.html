@@ -4,7 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarixə Görə Məhsulları Sil - Kamal Gafarov</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .btn + .btn {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,8 +94,8 @@
                 <input type="date" id="end_date" name="end_date" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-danger">Məhsulları Sil</button>
+            <a href="/" class="btn btn-secondary">Ana Səhifəyə Qayıt</a>
         </form>
-        <a href="/" class="btn btn-secondary">Ana Səhifəyə Qayıt</a>
     </div>
 </body>
 </html>

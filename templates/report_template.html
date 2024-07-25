@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Son İstifadə Tarixi Hesabatı</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Son İstifadə Tarixi Hesabatı</h1>
+    <p>Başlanğıc Tarixi: {{ start_date }} | Son Tarixi: {{ end_date }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Malın Adı</th>
+                <th>Son İstifadə Tarixi</th>
+                <th>Qalan Günlər</th>
+                <th>Şəkil</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.expiration_date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ product.days_left }}</td>
+                <td>
+                    {% if product.photo_link_base64 %}
+                    <img src="data:image/jpeg;base64,{{ product.photo_link_base64 }}" alt="Məhsul Şəkili">
+                    {% else %}
+                    Şəkil Yoxdur
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
