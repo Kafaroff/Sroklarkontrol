@@ -28,7 +28,6 @@ mail = Mail(app)
 # PDF için wkhtmltopdf yolunu belirtin
 pdfkit_config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
 
-
 # Model tanımı
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -238,7 +237,6 @@ def request_report():
             product.photo_link_base64 = image_to_base64(photo_path)
         else:
             product.photo_link_base64 = None
-        # Calculate days left and include in products
         product.days_left = calculate_days_left(product.expiration_date)
 
     pdf_content = render_template('report_template.html', products=products, start_date=start_date, end_date=end_date)
@@ -249,6 +247,7 @@ def request_report():
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = 'attachment; filename=expiration_report.pdf'
     return response
+
 # Ana sayfa
 @app.route('/logout')
 def logout():
@@ -257,4 +256,5 @@ def logout():
 
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True)
+    # 8080 portunda çalışacak şekilde yapılandırıyoruz.
+    app.run(debug=True, port=8080)
